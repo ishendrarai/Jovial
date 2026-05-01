@@ -50,6 +50,8 @@
 
 ## ✨ Overview
 
+> ⚠️ **Jovial is a streaming platform framework. You must supply your own licensed audio content — no music catalog is included.**
+
 **Jovial** is a full-stack music streaming platform built on the MERN stack that reimagines how people experience music — together. Beyond being a beautifully crafted personal player with a reel-style swipe interface, Jovial introduces two breakthrough features that no mainstream streaming platform has ever shipped properly:
 
 | Feature | Status | Capability |
@@ -93,20 +95,22 @@ Jovial acts as a **social music layer** on top of a world-class streaming player
 
 ## 🌐 Live Demo
 
-🔗 **https://jovial-app.vercel.app**
+> 🚧 **Demo coming soon** — self-host using Docker Compose (see Deployment section). A public demo will be available at [https://jovial-app.vercel.app](https://jovial-app.vercel.app) once the platform launches.
 
-### Test Credentials
+### Test Credentials (local seed)
 
 ```
 Email:    demo@jovial.music
 Password: demo1234
 ```
 
-> **Note:** Demo account comes with pre-populated playlists, a seeded Together Mode room, and a mock StereoLink demo session.
+> **Note:** Run `npm run seed` in the server directory first. This creates demo users with pre-populated playlists and a mock StereoLink session.
 
 ---
 
 ## 📸 Screenshots
+
+> 📌 **Note:** Screenshots are committed under `./screenshots/`. If images appear broken after cloning, ensure you have pulled the latest `main` branch. Prioritize updating the reel player and StereoLink screenshots as they are the key differentiating features.
 
 ### 🎵 Reel-Style Player
 ![Player](./screenshots/reel-player.png)
@@ -1207,10 +1211,10 @@ This populates MongoDB with 100 sample tracks, 10 artists, 5 playlists, and 3 de
 ### 5. Start Development Servers
 
 ```bash
-# Option A: All at once (requires concurrently)
+# Option A: All at once — requires `concurrently` (install with: npm install -g concurrently, or add as a root devDependency)
 npm run dev         # from root
 
-# Option B: Separately
+# Option B: Separately (recommended if Option A fails)
 cd server && npm run dev    # → http://localhost:5000
 cd client && npm run dev    # → http://localhost:3000
 ```
@@ -1264,12 +1268,16 @@ GITHUB_CLIENT_ID=your_github_client_id
 GITHUB_CLIENT_SECRET=your_github_client_secret
 
 # External APIs
+# Obtain at: https://developer.musixmatch.com
 MUSIXMATCH_API_KEY=your_musixmatch_key
+# Obtain at: https://developer.spotify.com/dashboard
 SPOTIFY_CLIENT_ID=your_spotify_client_id
 SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
+# Obtain at: https://www.last.fm/api/account/create
 LASTFM_API_KEY=your_lastfm_api_key
 
 # Firebase (Push Notifications)
+# Obtain at: https://console.firebase.google.com — create a project, then Service Accounts → Generate new private key
 FIREBASE_PROJECT_ID=your_firebase_project_id
 FIREBASE_PRIVATE_KEY=your_firebase_private_key
 FIREBASE_CLIENT_EMAIL=your_firebase_client_email
@@ -1366,8 +1374,6 @@ docker-compose up --build -d
 
 ```yaml
 # docker-compose.yml
-version: '3.9'
-
 services:
   server:
     build: ./server
@@ -1601,7 +1607,7 @@ Thanks to everyone who has helped build Jovial! 🙏
 <table>
   <tr>
     <td align="center">
-      <img src="https://via.placeholder.com/100" width="100px;" alt=""/><br />
+      <img src="https://github.com/ishendrarai.png?size=100" width="100px;" alt=""/><br />
       <sub><b>Your Name</b></sub><br />
       <small>Creator & Maintainer</small>
     </td>
@@ -1614,27 +1620,7 @@ Want to see your name here? [Contribute to Jovial!](#-contributing)
 
 ## 📄 License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for full details.
-
-```
-MIT License
-
-Copyright (c) 2024 Jovial Team
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-provided to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-```
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
 ---
 
